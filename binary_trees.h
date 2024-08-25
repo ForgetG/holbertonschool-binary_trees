@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/*------------------------------------------------------------------*/
+/*---------------------TYPEDEF-----------------------------------------*/
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -25,7 +25,11 @@ typedef struct binary_tree_s
 	struct binary_tree_s *right;
 } binary_tree_t;
 
-/*--------------------------------------------------------------------*/
+typedef struct binary_tree_s	bst_t;
+typedef struct binary_tree_s	avl_t;
+typedef struct binary_tree_s	heap_t;
+
+/*----------------------------VOID--------------------------------------*/
 
 void	binary_tree_print(const binary_tree_t *);
 void	binary_tree_delete(binary_tree_t *tree);
@@ -36,7 +40,7 @@ void	binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));
 void	binary_tree_levelorder(const binary_tree_t *tree,
 		void (*func)(int));
 void	process_level(const binary_tree_t *tree, size_t level, void (*func)(int));
-/*--------------------------------------------------------------------*/
+/*----------------------BINARY_TREE_T-----------------------------------*/
 
 binary_tree_t	*binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t	*binary_tree_rotate_left(binary_tree_t *tree);
@@ -48,7 +52,7 @@ binary_tree_t	*binary_tree_uncle(binary_tree_t *node);
 binary_tree_t	*binary_trees_ancestor(const binary_tree_t *first,
 		const binary_tree_t *second);
 
-/*--------------------------------------------------------------------*/
+/*-------------------------INT------------------------------------------*/
 
 int	binary_tree_is_leaf(const binary_tree_t *node);
 int	binary_tree_is_root(const binary_tree_t *node);
@@ -58,8 +62,10 @@ int	binary_tree_is_perfect(const binary_tree_t *tree);
 int	binary_tree_is_complete(const binary_tree_t *tree);
 int	is_complete_recursive(const binary_tree_t *tree, size_t index,
 		size_t node_count);
+int	binary_tree_is_bst(const binary_tree_t *tree);
+int	is_bst_helper(const binary_tree_t *tree, int min, int max);
 
-/*-------------------------------------------------------------------*/
+/*----------------------SIZE_T------------------------------------------*/
 
 size_t	binary_tree_height(const binary_tree_t *tree);
 size_t	binary_tree_depth(const binary_tree_t *tree);
